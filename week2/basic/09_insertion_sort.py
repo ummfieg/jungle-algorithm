@@ -72,7 +72,9 @@ def insertion_sort_with_steps(arr):
         print(f"정렬된 부분: {arr[:i]}")
         
         # TODO: 삽입 위치 찾기 및 이동
-        pass
+        while j >= 0 and arr[j] > key:
+            arr[j+1] = arr[j]
+            j -= 1
         
         arr[j + 1] = key
         print(f"삽입 후: {arr}")
