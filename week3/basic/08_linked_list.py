@@ -21,41 +21,48 @@
 - append(): 끝에 추가
 - print_list(): 모든 노드 출력
 """
-
+# 하나의 칸(데이터+다음 노드 주소) = 노드 하나를 의미
 class Node:
     """연결 리스트의 노드"""
     def __init__(self, data):
         self.data = data
         self.next = None
 
+# 노드들을 관리하는 객체(head, append, remove, print)로 시작점(head)를가지고 노드를 추가 삭제하는 관리자
 class LinkedList:
     """단순 연결 리스트"""
     def __init__(self):
-        self.head = None
+        self.head = None 
     
     def append(self, data):
         """리스트 끝에 노드 추가"""
         new_node = Node(data)
         
         # TODO: 리스트가 비어있으면 head를 new_node로 설정
-        pass
+        if self.head is None:
+            self.head = new_node
+            return
         
         # TODO: 마지막 노드 찾기
-        pass
-        
+        pointer = self.head
+        while  pointer != None:
+            last = pointer
+            pointer = pointer.next          
         # TODO: 마지막 노드의 next를 new_node로 설정
-        pass
-    
+        last.next = new_node
+     
     def print_list(self):
         """리스트의 모든 값 출력"""
         values = []
         
         # TODO: head부터 시작
-        pass
-        
+        pointer = self.head
         # TODO: 끝까지 순회하며 값 수집
-        pass
-        
+        while pointer != None:
+           value = pointer.data
+           values.append(value)
+           pointer = pointer.next
+
         return values
 
 # 테스트 케이스
